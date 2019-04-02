@@ -30,10 +30,12 @@ public class CalculatorBean {
 		this.init();
 	}
 
-	public void processOperation(Operation operation) {
+	public String processOperation(String operationName) {
+		Operation operation = new Operation(operationName);
 		if (!isError() || (isError() && operation.isClear())) {
 			this.addNewOperation(operation);
 		}
+		return "index";
 	}
 
 	private void addNewOperation(Operation operation) {
